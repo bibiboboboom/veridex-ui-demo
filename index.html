@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Veridex AI Contract & Compliance Assistant — fictional interactive product demo for Texas small and midsize businesses.">
+  <title>Veridex — AI Contract &amp; Compliance Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none"><path d="M7 6.5 14 3l7 3.5v6.2c0 5-3 8.9-7 11.3-4-2.4-7-6.3-7-11.3V6.5Z" stroke="currentColor" stroke-width="2"/><path d="m10.5 13.5 2.2 2.2 4.9-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="brand-name">Veridex</div>
+          <div class="brand-subtitle">Contract &amp; Compliance AI</div>
+        </div>
+      </div>
+
+      <nav class="nav-list">
+        <div class="nav-section">
+          <div class="nav-label">Workspace</div>
+          <a class="nav-link active" href="#overview" data-page="overview">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+            <span>Overview</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Contract work</div>
+          <a class="nav-link" href="#draft" data-page="draft">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4L16.5 3.5Z"/></svg>
+            <span>Draft &amp; Translate</span>
+          </a>
+          <a class="nav-link" href="#review" data-page="review">
+            <svg viewBox="0 0 24 24"><path d="M14.5 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5L14.5 3Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+            <span>Review &amp; Redline</span>
+            <span class="nav-count">1</span>
+          </a>
+          <a class="nav-link" href="#contracts" data-page="contracts">
+            <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H9l2 2h6.5A2.5 2.5 0 0 1 20 7.5v10a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-12Z"/></svg>
+            <span>Contract Hub</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Compliance</div>
+          <a class="nav-link" href="#screening" data-page="screening">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6M8 11h6"/></svg>
+            <span>Counterparty Screening</span>
+            <span class="nav-dot" aria-label="One item needs review"></span>
+          </a>
+          <a class="nav-link" href="#sources" data-page="sources">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3Z"/></svg>
+            <span>Sources &amp; Policies</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Lifecycle</div>
+          <a class="nav-link" href="#obligations" data-page="obligations">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2M8 3 5 6M16 3l3 3"/></svg>
+            <span>Obligations &amp; Renewals</span>
+            <span class="nav-count warning">2</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-label">Expert support</div>
+          <a class="nav-link" href="#counsel" data-page="counsel">
+            <svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="M9 12.5 11 14l4-4"/></svg>
+            <span>Counsel Review</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-card">
+          <div class="avatar">SM</div>
+          <div class="user-copy">
+            <strong>Sofia Martinez</strong>
+            <span>Procurement Admin</span>
+          </div>
+          <button class="icon-button small" aria-label="Open settings" data-action="demo-only">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21h-4v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1-2.8-2.8.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3v-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1 2.8-2.8.1.1a1.7 1.7 0 0 0 1.8.3 1.7 1.7 0 0 0 1-1.5V3h4v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1 2.8 2.8-.1.1a1.7 1.7 0 0 0-.3 1.8 1.7 1.7 0 0 0 1.5 1h.2v4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="breadcrumb" id="breadcrumb"><span>Workspace</span><b>/</b><strong>Overview</strong></div>
+        <div class="topbar-spacer"></div>
+        <div class="demo-pill"><span></span> Fictional demo data</div>
+        <label class="global-search" aria-label="Search demo data">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="global-search" type="search" placeholder="Search contracts or tasks">
+          <kbd>⌘ K</kbd>
+        </label>
+        <div class="notification-wrap">
+          <button class="icon-button" id="notification-button" aria-label="Open alerts" aria-expanded="false">
+            <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8M10 20h4"/></svg>
+            <span class="notification-badge">2</span>
+          </button>
+          <div class="notification-panel" id="notification-panel" aria-hidden="true"></div>
+        </div>
+      </header>
+
+      <div class="trust-strip">
+        <svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="M12 8v5M12 16h.01"/></svg>
+        <span><strong>AI-assisted information.</strong> Not a substitute for licensed legal counsel. Legal sources and screening matches require human verification.</span>
+      </div>
+
+      <main class="page-container" id="page-content" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
