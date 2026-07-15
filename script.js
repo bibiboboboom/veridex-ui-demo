@@ -631,11 +631,20 @@ function renderTour() {
   const overlay = document.getElementById('tour-overlay');
   const step = tourSteps[state.tourStep];
   document.querySelectorAll('.tour-highlight').forEach(item => item.classList.remove('tour-highlight'));
+  let spotlight = '';
+  let target = null;
   if (step.target) {
-    const target = document.querySelector(`[data-tour-target="${step.target}"]`);
-    if (target) target.classList.add('tour-highlight');
+    target = document.querySelector(`[data-tour-target="${step.target}"]`);
+    if (target) {
+      target.classList.add('tour-highlight');
+      const rect = target.getBoundingClientRect();
+      const padding = 6;
+      spotlight = `<div class="tour-spotlight" aria-hidden="true" style="left:${rect.left - padding}px;top:${rect.top - padding}px;width:${rect.width + (padding * 2)}px;height:${rect.height + (padding * 2)}px"></div>`;
+    }
   }
+  overlay.classList.toggle('has-target', Boolean(target));
   overlay.innerHTML = `
+    ${spotlight}
     <section class="tour-dialog" role="dialog" aria-modal="true" aria-labelledby="tour-title">
       <div class="tour-progress">${tourSteps.map((_, index) => `<span class="${index <= state.tourStep ? 'active' : ''}"></span>`).join('')}</div>
       <div class="tour-icon">${icon(step.icon)}</div>
@@ -750,7 +759,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('sidebar-backdrop').addEventListener('click', closeMobileMenu);
   window.addEventListener('hashchange', () => renderPage(window.location.hash.slice(1) || 'overview'));
 
-  if (!localStorage.getItem('veridex-tour-complete') && params.get('tour') !== 'off') {
+  const requestedTourStep = Number.parseInt(params.get('tourStep'), 10);
+  if (Number.isInteger(requestedTourStep) && requestedTourStep >= 0 && requestedTourStep < tourSteps.length) {
+    window.setTimeout(() => openTour(requestedTourStep), 250);
+  } else if (!localStorage.getItem('veridex-tour-complete') && params.get('tour') !== 'off') {
     window.setTimeout(() => openTour(0), 450);
   }
 });
