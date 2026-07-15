@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Veridex AI Contract & Compliance Assistant — fictional interactive product demo for Texas small and midsize businesses.">
+  <meta name="description" content="Veridex AI-assisted contract drafting, review, compliance and obligation management for growing businesses.">
   <title>Veridex — AI Contract &amp; Compliance Assistant</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,73 +16,79 @@
         </div>
         <div>
           <div class="brand-name">Veridex</div>
-          <div class="brand-subtitle">Contract &amp; Compliance AI</div>
+          <div class="brand-subtitle">Contract operations</div>
         </div>
+        <button class="sidebar-collapse" id="sidebar-collapse" aria-label="Collapse navigation" aria-expanded="true" title="Collapse navigation">
+          <svg viewBox="0 0 24 24"><path d="m14 7-5 5 5 5"/></svg>
+        </button>
       </div>
 
       <nav class="nav-list">
         <div class="nav-section">
           <div class="nav-label">Workspace</div>
-          <a class="nav-link active" href="#overview" data-page="overview">
+          <a class="nav-link active" href="#overview" data-page="overview" data-tour-target="home" title="Home">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
-            <span>Overview</span>
+            <span>Home</span>
           </a>
         </div>
 
         <div class="nav-section">
-          <div class="nav-label">Contract work</div>
-          <a class="nav-link" href="#draft" data-page="draft">
+          <div class="nav-label">Contracts</div>
+          <a class="nav-link" href="#draft" data-page="draft" data-tour-target="create" title="Create agreement">
             <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4L16.5 3.5Z"/></svg>
-            <span>Draft &amp; Translate</span>
+            <span>Create agreement</span>
           </a>
-          <a class="nav-link" href="#review" data-page="review">
+          <a class="nav-link" href="#review" data-page="review" data-tour-target="review" title="Review &amp; redline">
             <svg viewBox="0 0 24 24"><path d="M14.5 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5L14.5 3Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
-            <span>Review &amp; Redline</span>
+            <span>Review &amp; redline</span>
             <span class="nav-count">1</span>
           </a>
-          <a class="nav-link" href="#contracts" data-page="contracts">
+          <a class="nav-link" href="#contracts" data-page="contracts" data-tour-target="manage" title="All contracts">
             <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H9l2 2h6.5A2.5 2.5 0 0 1 20 7.5v10a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-12Z"/></svg>
-            <span>Contract Hub</span>
+            <span>All contracts</span>
           </a>
         </div>
 
         <div class="nav-section">
-          <div class="nav-label">Compliance</div>
-          <a class="nav-link" href="#screening" data-page="screening">
+          <div class="nav-label">Risk &amp; compliance</div>
+          <a class="nav-link" href="#screening" data-page="screening" data-tour-target="screen" title="Counterparties">
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6M8 11h6"/></svg>
-            <span>Counterparty Screening</span>
+            <span>Counterparties</span>
             <span class="nav-dot" aria-label="One item needs review"></span>
           </a>
-          <a class="nav-link" href="#sources" data-page="sources">
+          <a class="nav-link" href="#sources" data-page="sources" title="Policy library">
             <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3Z"/></svg>
-            <span>Sources &amp; Policies</span>
+            <span>Policy library</span>
           </a>
         </div>
 
         <div class="nav-section">
-          <div class="nav-label">Lifecycle</div>
-          <a class="nav-link" href="#obligations" data-page="obligations">
+          <div class="nav-label">Operations</div>
+          <a class="nav-link" href="#obligations" data-page="obligations" data-tour-target="track" title="Obligations">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2M8 3 5 6M16 3l3 3"/></svg>
-            <span>Obligations &amp; Renewals</span>
+            <span>Obligations</span>
             <span class="nav-count warning">2</span>
           </a>
         </div>
 
         <div class="nav-section">
-          <div class="nav-label">Expert support</div>
-          <a class="nav-link" href="#counsel" data-page="counsel">
+          <a class="nav-link" href="#counsel" data-page="counsel" data-tour-target="counsel" title="Legal review">
             <svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="M9 12.5 11 14l4-4"/></svg>
-            <span>Counsel Review</span>
+            <span>Legal review</span>
           </a>
         </div>
       </nav>
 
       <div class="sidebar-footer">
+        <button class="tour-launch" data-action="start-tour" title="Show product tour">
+          <svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/><path d="M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-.9.7-1.7 1.1-1.7 2.2M12 17h.01"/></svg>
+          <span>Show me around</span>
+        </button>
         <div class="user-card">
           <div class="avatar">SM</div>
           <div class="user-copy">
             <strong>Sofia Martinez</strong>
-            <span>Procurement Admin</span>
+            <span>Operations admin</span>
           </div>
           <button class="icon-button small" aria-label="Open settings" data-action="demo-only">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21h-4v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1-2.8-2.8.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3v-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1 2.8-2.8.1.1a1.7 1.7 0 0 0 1.8.3 1.7 1.7 0 0 0 1-1.5V3h4v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1 2.8 2.8-.1.1a1.7 1.7 0 0 0-.3 1.8 1.7 1.7 0 0 0 1.5 1h.2v4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></svg>
@@ -100,12 +106,15 @@
         </button>
         <div class="breadcrumb" id="breadcrumb"><span>Workspace</span><b>/</b><strong>Overview</strong></div>
         <div class="topbar-spacer"></div>
-        <div class="demo-pill"><span></span> Fictional demo data</div>
+        <div class="demo-pill" title="All companies, records, results and metrics in this workspace are illustrative"><span></span> Sample workspace</div>
         <label class="global-search" aria-label="Search demo data">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
           <input id="global-search" type="search" placeholder="Search contracts or tasks">
-          <kbd>⌘ K</kbd>
+          <kbd>Ctrl K</kbd>
         </label>
+        <button class="icon-button tour-help" data-action="start-tour" aria-label="Open product tour" title="Product tour">
+          <svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z"/><path d="M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-.9.7-1.7 1.1-1.7 2.2M12 17h.01"/></svg>
+        </button>
         <div class="notification-wrap">
           <button class="icon-button" id="notification-button" aria-label="Open alerts" aria-expanded="false">
             <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8M10 20h4"/></svg>
@@ -117,7 +126,8 @@
 
       <div class="trust-strip">
         <svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="M12 8v5M12 16h.01"/></svg>
-        <span><strong>AI-assisted information.</strong> Not a substitute for licensed legal counsel. Legal sources and screening matches require human verification.</span>
+        <span><strong>AI-assisted information.</strong> Not a substitute for licensed legal counsel. Sources and screening matches require human verification.</span>
+        <span class="sample-note">Sample workspace · All records and metrics are illustrative.</span>
       </div>
 
       <main class="page-container" id="page-content" tabindex="-1"></main>
@@ -125,6 +135,7 @@
   </div>
 
   <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <div class="tour-overlay" id="tour-overlay" aria-hidden="true"></div>
   <script src="script.js"></script>
 </body>
 </html>
