@@ -308,14 +308,82 @@ function metaCell(label, value) {
 function renderContractDocument() {
   return `
     <article class="document-page">
-      <h2>PROFESSIONAL SERVICES AGREEMENT</h2><span class="doc-subtitle">AI-assisted review · Human decision required</span>
-      <p>This Professional Services Agreement sets out the working terms between Northstar Studio LLC (“Customer”) and Cedar Works Inc. (“Provider”).</p>
-      <h3>3. SERVICES AND ORDERS</h3><p>Provider will perform the services described in each statement of work accepted by the parties. Each statement will identify scope, milestones, fees and target dates.</p>
-      <h3>5. DELIVERY AND ACCEPTANCE</h3><div class="flagged-clause high ${state.selectedFinding === 'delivery' ? 'active' : ''}" data-clause-id="delivery"><p><strong>5.2</strong> Delivery will occur at a time and location mutually agreed by the parties.</p></div><p>Customer may review delivered work and notify Provider of material nonconformities within the agreed acceptance period.</p>
-      <h3>7. INVOICING AND PAYMENT</h3><div class="flagged-clause ${state.selectedFinding === 'payment' ? 'active' : ''}" data-clause-id="payment"><p><strong>7.1</strong> Customer will pay each undisputed invoice within thirty days after receipt.</p></div><p>Provider will supply reasonable documentation for disputed invoice items.</p>
-      <h3>9. INSURANCE AND DOCUMENTATION</h3><div class="flagged-clause ${state.selectedFinding === 'certificate' ? 'active' : ''}" data-clause-id="certificate"><p><strong>9.4</strong> Provider will maintain commercially reasonable insurance throughout the Term.</p></div>
-      <h3>12. TERM AND RENEWAL</h3><div class="flagged-clause high ${state.selectedFinding === 'renewal' ? 'active' : ''}" data-clause-id="renewal"><p><strong>12.3</strong> The Agreement renews automatically for successive one-year terms unless either party provides timely notice.</p></div>
-      <h3>15. REVIEW STATUS</h3><p>Suggested language must be reviewed against the parties’ facts, verified sources and applicable human approval requirements before use.</p>
+      <div class="document-kicker">Sample agreement · PSA-2026-014</div>
+      <h2>PROFESSIONAL SERVICES AGREEMENT</h2>
+      <span class="doc-subtitle">AI-assisted review · Human decision required</span>
+      <div class="contract-document-meta">
+        <div><span>Customer</span><strong>Northstar Studio LLC</strong></div>
+        <div><span>Provider</span><strong>Cedar Works Inc.</strong></div>
+        <div><span>Effective date</span><strong>July 15, 2026 · Illustrative</strong></div>
+        <div><span>Review status</span><strong>Business and legal review required</strong></div>
+      </div>
+      <p class="contract-introduction">This fictional Professional Services Agreement (the “Agreement”) records the operating terms under which Cedar Works Inc. (“Provider”) will perform professional services for Northstar Studio LLC (“Customer”). It is presented solely as sample workspace content.</p>
+
+      <h3>1. PARTIES AND EFFECTIVE DATE</h3>
+      <p><strong>1.1</strong> The parties to this Agreement are Customer and Provider as identified above. The Agreement begins on the stated Effective Date after authorized representatives of both parties approve it.</p>
+      <p><strong>1.2</strong> Each party will designate a business contact who may coordinate day-to-day work but may not amend this Agreement unless separately authorized.</p>
+
+      <h3>2. AGREEMENT STRUCTURE</h3>
+      <p><strong>2.1</strong> Services will be requested through written statements of work or service orders accepted by both parties (each, an “Order”).</p>
+      <p><strong>2.2</strong> Each Order will identify the project objective, scope, deliverables, timetable, fees, assumptions, dependencies and acceptance criteria. An Order does not change this Agreement unless it expressly identifies the provision being changed.</p>
+
+      <h3>3. SERVICES AND ORDERS</h3>
+      <p><strong>3.1</strong> Provider will perform the services described in each accepted Order using personnel with appropriate experience for the assigned work.</p>
+      <p><strong>3.2</strong> Provider will maintain a current project plan and will notify Customer when a known issue is reasonably expected to affect an agreed milestone, fee or dependency.</p>
+
+      <h3>4. PROJECT GOVERNANCE AND CHANGES</h3>
+      <p><strong>4.1</strong> The designated business contacts will review progress, decisions and open dependencies at the cadence stated in the applicable Order.</p>
+      <p><strong>4.2</strong> A proposed change to scope, timing, staffing or fees will be documented in a change request showing the expected operational impact. Neither party is required to proceed with the change until it is accepted in writing.</p>
+
+      <h3>5. DELIVERY AND ACCEPTANCE</h3>
+      <p><strong>5.1</strong> Provider will prepare each deliverable in the format and by the target date stated in the applicable Order and will identify any Customer action required for delivery.</p>
+      <div class="flagged-clause high ${state.selectedFinding === 'delivery' ? 'active' : ''}" data-clause-id="delivery"><p><strong>5.2</strong> Delivery will occur at a time and location mutually agreed by the parties.</p></div>
+      <p><strong>5.3</strong> Customer will review a delivered item against the acceptance criteria in the applicable Order and will describe any material nonconformity during the stated review period. Provider will address an agreed nonconformity and resubmit the item for review.</p>
+
+      <h3>6. CUSTOMER RESPONSIBILITIES</h3>
+      <p><strong>6.1</strong> Customer will provide timely access to the information, systems, personnel and decisions identified as dependencies in an Order.</p>
+      <p><strong>6.2</strong> If a Customer dependency is delayed, the business contacts will document the effect on the project plan and determine whether a change request is needed.</p>
+
+      <h3>7. FEES, INVOICING AND PAYMENT</h3>
+      <div class="flagged-clause ${state.selectedFinding === 'payment' ? 'active' : ''}" data-clause-id="payment"><p><strong>7.1</strong> Customer will pay each undisputed invoice within thirty days after receipt.</p></div>
+      <p><strong>7.2</strong> Each invoice will reference the applicable Order, billing period, completed milestone or approved expense and will include reasonable supporting detail.</p>
+      <p><strong>7.3</strong> Customer will notify Provider of a disputed item with enough detail for the parties to investigate it. Undisputed portions remain payable under the applicable Order.</p>
+
+      <h3>8. CONFIDENTIAL INFORMATION AND DATA HANDLING</h3>
+      <p><strong>8.1</strong> Each party will use the other party’s non-public business information only to perform or receive the services and will limit access to personnel who need it for that purpose.</p>
+      <p><strong>8.2</strong> The applicable Order will identify any project-specific security, retention, access or return requirements. Any compliance representation requires verification before the Order is approved.</p>
+
+      <h3>9. INSURANCE, RECORDS AND EVIDENCE</h3>
+      <p><strong>9.1</strong> Provider will maintain project records reasonably sufficient to support invoices, milestone completion and agreed operational reviews.</p>
+      <p><strong>9.2</strong> Each party will retain approvals and change records in its designated contract workspace.</p>
+      <p><strong>9.3</strong> Any required coverage types, limits, evidence format and renewal dates will be listed in the applicable Order or an approved schedule.</p>
+      <div class="flagged-clause ${state.selectedFinding === 'certificate' ? 'active' : ''}" data-clause-id="certificate"><p><strong>9.4</strong> Provider will maintain commercially reasonable insurance throughout the Term.</p></div>
+
+      <h3>10. WORK PRODUCT AND CUSTOMER MATERIALS</h3>
+      <p><strong>10.1</strong> Each party retains ownership of materials it owned or developed independently of the services. Customer grants Provider access to Customer materials only as needed to perform an Order.</p>
+      <p><strong>10.2</strong> Ownership and permitted use of project deliverables, Provider tools and third-party materials will be stated in the applicable Order and confirmed during human review.</p>
+
+      <h3>11. SERVICE QUALITY AND CORRECTION</h3>
+      <p><strong>11.1</strong> Provider will perform the services in a professional manner consistent with the specifications and acceptance criteria in the applicable Order.</p>
+      <p><strong>11.2</strong> If Provider confirms that work does not materially meet those criteria, Provider will use the correction process and timetable agreed by the business contacts.</p>
+
+      <h3>12. TERM, TERMINATION AND RENEWAL</h3>
+      <p><strong>12.1</strong> This Agreement begins on the Effective Date and continues until it expires or is terminated under an approved provision. Completion of one Order does not automatically terminate another active Order.</p>
+      <p><strong>12.2</strong> Upon termination, the parties will coordinate outstanding deliverables, approved fees, return of materials and transition actions documented in the applicable Order.</p>
+      <div class="flagged-clause high ${state.selectedFinding === 'renewal' ? 'active' : ''}" data-clause-id="renewal"><p><strong>12.3</strong> The Agreement renews automatically for successive one-year terms unless either party provides timely notice.</p></div>
+
+      <h3>13. ISSUE ESCALATION AND BUSINESS CONTINUITY</h3>
+      <p><strong>13.1</strong> Project issues will first be referred to the designated business contacts. Unresolved material issues will be escalated to an authorized executive identified by each party.</p>
+      <p><strong>13.2</strong> A legal conclusion, disputed liability allocation or requested exception to approved policy will be routed to qualified human review before a final decision is recorded.</p>
+
+      <h3>14. NOTICES, ASSIGNMENT AND ORDER OF PRECEDENCE</h3>
+      <p><strong>14.1</strong> Formal notices will be sent to the contacts and addresses recorded in the signed version of this Agreement. Operational messages alone do not amend the Agreement.</p>
+      <p><strong>14.2</strong> Neither party may transfer an Order or this Agreement except through the approval process stated in the signed version.</p>
+      <p><strong>14.3</strong> If documents conflict, a signed amendment controls, followed by the applicable Order and then this Agreement, unless the signed documents expressly state otherwise.</p>
+
+      <h3>15. REVIEW STATUS AND EXECUTION</h3>
+      <p><strong>15.1</strong> The highlighted findings and suggested redlines are AI-assisted information, not final legal advice. They must be reviewed against the actual transaction, verified sources and the parties’ approval requirements.</p>
+      <p><strong>15.2</strong> This sample is not an executed agreement. Final party details, authority, exhibits, jurisdiction-specific provisions and signature blocks require qualified human review before use.</p>
     </article>`;
 }
 
@@ -627,6 +695,22 @@ function toggleSidebar() {
   applySidebarState();
 }
 
+function revealTourTarget(target) {
+  const scrollContainer = target.closest('.nav-list');
+  if (!scrollContainer) return;
+
+  const containerRect = scrollContainer.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+  const visibleTop = containerRect.top + 14;
+  const visibleBottom = containerRect.bottom - 14;
+
+  if (targetRect.top < visibleTop || targetRect.bottom > visibleBottom) {
+    const targetCenter = targetRect.top + (targetRect.height / 2);
+    const containerCenter = containerRect.top + (containerRect.height / 2);
+    scrollContainer.scrollTop += targetCenter - containerCenter;
+  }
+}
+
 function renderTour() {
   const overlay = document.getElementById('tour-overlay');
   const step = tourSteps[state.tourStep];
@@ -636,6 +720,7 @@ function renderTour() {
   if (step.target) {
     target = document.querySelector(`[data-tour-target="${step.target}"]`);
     if (target) {
+      revealTourTarget(target);
       target.classList.add('tour-highlight');
       const rect = target.getBoundingClientRect();
       const padding = 6;
