@@ -1,4 +1,4 @@
-/* Veridex sample workspace. All companies, contracts, results, dates and metrics are illustrative. */
+/* All companies, contracts, results, dates and metrics shown are fictional and illustrative. */
 
 const state = {
   currentPage: 'overview',
@@ -10,6 +10,7 @@ const state = {
   counselRequested: false,
   screeningVerified: false,
   alignmentResolved: false,
+  paymentChoice: null,
   monitoringActive: false,
   postActionApproved: false,
   draftSaved: false,
@@ -160,7 +161,7 @@ function renderOverview() {
   const counselLabel = state.counselRequested ? 'Counsel response pending' : 'Legal review package ready';
   return `
     <section class="page">
-      ${pageHeader('Agent workspace', 'Good morning, Sofia', 'Veridex is coordinating contract data, decisions and follow-through across your sample workspace.')}
+      ${pageHeader('Agent workspace', 'Good morning, Sofia', 'Veridex is an AI contract operations agent that coordinates data, approvals, and next steps from intake through post-signature execution.')}
 
       <div class="hero-card agent-hero">
         <div class="hero-copy">
@@ -198,9 +199,9 @@ function renderOverview() {
 
       <div class="dashboard-grid">
         <div class="card">
-          <div class="card-header"><div><div class="card-title">Agent activity</div><div class="card-description">What Veridex prepared and what still needs a person</div></div><span class="tag blue">Sample workflow</span></div>
+          <div class="card-header"><div><div class="card-title">Agent activity</div><div class="card-description">What Veridex prepared and what still needs a person</div></div><span class="tag blue">Live workflow</span></div>
           <div class="agent-activity-list">
-            ${agentEventRow('database', 'Business context assembled', 'Vendor, payment terms and owner mapped from sample systems', 'Completed', 'green', 'data-alignment')}
+            ${agentEventRow('database', 'Business context assembled', 'Vendor, payment terms and owner found across company systems', 'Completed', 'green', 'data-alignment')}
             ${agentEventRow('review', 'Four review findings prepared', 'Suggested redlines are ready for a business decision', 'Approval needed', 'amber', 'review')}
             ${agentEventRow('users', counselLabel, 'One delivery question packaged with contract and business context', state.counselRequested ? 'Awaiting response' : 'Ready', 'purple', 'counsel')}
             ${agentEventRow('clock', 'Post-signature plan proposed', 'Four actions mapped to finance and operations owners', 'Not started', '', 'post-signature')}
@@ -210,10 +211,10 @@ function renderOverview() {
         <div class="card">
           <div class="card-header"><div><div class="card-title">Aligned workspace context</div><div class="card-description">Illustrative sources available to the agent</div></div><button class="btn small ghost" data-navigate="data-alignment">Review ${icon('arrow')}</button></div>
           <div class="system-context-list">
-            ${systemContextRow('database', 'ERP & Procurement', 'Vendor master · Orders · Delivery events', 'Sample connection', 'green')}
-            ${systemContextRow('activity', 'Finance', 'Payment terms · Invoices · Approval status', 'Sample connection', 'green')}
-            ${systemContextRow('users', 'HRIS', 'Business owners · Roles · Approval chain', 'Sample connection', 'purple')}
-            ${systemContextRow('folder', 'Contract repository', 'Signed versions · Amendments · Evidence', 'Sample connection', 'blue')}
+            ${systemContextRow('database', 'ERP & Procurement', 'Vendor master · Orders · Delivery events', 'Connected', 'green')}
+            ${systemContextRow('activity', 'Finance', 'Payment terms · Invoices · Approval status', 'Connected', 'green')}
+            ${systemContextRow('users', 'HRIS', 'Business owners · Roles · Approval chain', 'Connected', 'purple')}
+            ${systemContextRow('folder', 'Contract repository', 'Signed versions · Amendments · Evidence', 'Connected', 'blue')}
           </div>
         </div>
       </div>
@@ -270,7 +271,7 @@ function renderReviewIntake() {
         <div class="card-header"><div><div class="card-title">2 · Business context</div><div class="card-description">Use operational language instead of Party A / Party B</div></div></div>
         <div class="card-body">
           <div class="aligned-context-panel">
-            <div><span class="context-label">ALIGNED BY VERIDEX AGENT</span><strong>Business context found in sample systems</strong></div>
+            <div><span class="context-label">FOUND BY VERIDEX AGENT</span><strong>Business context found across company systems</strong></div>
             <div class="context-chip-row"><span class="context-chip">ERP · Cedar Works Inc.</span><span class="context-chip">Finance · Net 30</span><span class="context-chip">HRIS · Sofia Martinez</span></div>
             <button class="btn small" data-navigate="data-alignment">Review sources</button>
           </div>
@@ -364,7 +365,7 @@ function metaCell(label, value) {
 function renderContractDocument() {
   return `
     <article class="document-page">
-      <div class="document-kicker">Sample agreement · PSA-2026-014</div>
+      <div class="document-kicker">Agreement record · PSA-2026-014</div>
       <h2>PROFESSIONAL SERVICES AGREEMENT</h2>
       <span class="doc-subtitle">AI-assisted review · Human decision required</span>
       <div class="contract-document-meta">
@@ -373,7 +374,7 @@ function renderContractDocument() {
         <div><span>Effective date</span><strong>July 15, 2026 · Illustrative</strong></div>
         <div><span>Review status</span><strong>Business and legal review required</strong></div>
       </div>
-      <p class="contract-introduction">This fictional Professional Services Agreement (the “Agreement”) records the operating terms under which Cedar Works Inc. (“Provider”) will perform professional services for Northstar Studio LLC (“Customer”). It is presented solely as sample workspace content.</p>
+      <p class="contract-introduction">This fictional Professional Services Agreement (the “Agreement”) records the operating terms under which Cedar Works Inc. (“Provider”) will perform professional services for Northstar Studio LLC (“Customer”). All parties and records shown are illustrative.</p>
 
       <h3>1. PARTIES AND EFFECTIVE DATE</h3>
       <p><strong>1.1</strong> The parties to this Agreement are Customer and Provider as identified above. The Agreement begins on the stated Effective Date after authorized representatives of both parties approve it.</p>
@@ -439,7 +440,7 @@ function renderContractDocument() {
 
       <h3>15. REVIEW STATUS AND EXECUTION</h3>
       <p><strong>15.1</strong> The highlighted findings and suggested redlines are AI-assisted information, not final legal advice. They must be reviewed against the actual transaction, verified sources and the parties’ approval requirements.</p>
-      <p><strong>15.2</strong> This sample is not an executed agreement. Final party details, authority, exhibits, jurisdiction-specific provisions and signature blocks require qualified human review before use.</p>
+      <p><strong>15.2</strong> This is not an executed agreement. Final party details, authority, exhibits, jurisdiction-specific provisions and signature blocks require qualified human review before use.</p>
     </article>`;
 }
 
@@ -449,7 +450,7 @@ function renderDraft() {
     <section class="page">
       ${pageHeader('AI-assisted authoring', 'Create an agreement from business terms', 'Choose a contract type, enter the deal basics and generate an English, Spanish or bilingual starting draft.', actions)}
       <div class="context-strip">
-        <div><span class="context-label">AGENT-PREPARED INPUT</span><strong>Business terms assembled from aligned sample data</strong></div>
+        <div><span class="context-label">AGENT-PREPARED INPUT</span><strong>Business terms assembled from company records</strong></div>
         <div class="context-chip-row"><span class="context-chip">ERP · Counterparty</span><span class="context-chip">Finance · Payment terms</span><span class="context-chip">HRIS · Approval owner</span></div>
         <button class="btn small" data-navigate="data-alignment">Review sources</button>
       </div>
@@ -532,8 +533,8 @@ function renderScreening() {
             <div class="result-banner"><div class="status-icon">${icon(state.screeningVerified ? 'check' : 'alert')}</div><div><h3>${statusTitle}</h3><p>${statusText}</p><div style="margin-top:7px"><span class="tag amber">Review in progress</span> <span class="tag ${state.screeningVerified ? 'green' : 'red'}">${state.screeningVerified ? 'Human reviewed' : 'Human review required'}</span></div></div></div>
             <div class="identity-grid">${identityCell('Legal name', 'Cedar Works Inc.')}${identityCell('Business location', 'United States')}${identityCell('Workspace ID', 'CW-0148')}${identityCell('Exact matches', 'None found')}${identityCell('Similar names', '1 · Review required')}${identityCell('Checked at', 'Jul 15, 2026 · 09:42')}</div>
             <div class="source-list">
-              <div class="source-row"><div class="source-icon">${icon('database')}</div><div><strong>ERP vendor master</strong><span>Legal name, business location and workspace identifier</span></div><span class="tag green">Sample connection</span></div>
-              <div class="source-row"><div class="source-icon">${icon('shield')}</div><div><strong>Restricted-party screening register</strong><span>Configured source registry and review procedure</span></div><span class="tag blue">Sample source</span></div>
+              <div class="source-row"><div class="source-icon">${icon('database')}</div><div><strong>ERP vendor master</strong><span>Legal name, business location and workspace identifier</span></div><span class="tag green">Connected</span></div>
+              <div class="source-row"><div class="source-icon">${icon('shield')}</div><div><strong>Restricted-party screening register</strong><span>Configured source registry and review procedure</span></div><span class="tag blue">Configured</span></div>
               <div class="source-row"><div class="source-icon">${icon('book')}</div><div><strong>Internal counterparty policy</strong><span>Company review and escalation requirements</span></div><span class="tag purple">Internal</span></div>
             </div>
             <div style="padding:0 18px 18px;display:flex;justify-content:flex-end;gap:8px"><button class="btn" data-action="request-counsel">Request legal review</button><button class="btn primary" data-action="verify-screening" ${state.screeningVerified ? 'disabled' : ''}>${icon('check')} ${state.screeningVerified ? 'Identity reviewed' : 'Mark as reviewed'}</button></div>
@@ -560,34 +561,34 @@ function renderPostSignature() {
   ];
   return `
     <section class="page">
-      ${pageHeader('Contract execution agent', 'Post-Signature', 'Keep every signed commitment on track across owners, systems, evidence and approval gates.', actions)}
+      ${pageHeader('Contract execution agent', 'Post-Signature', 'Keep every signed commitment on track across owners, systems, evidence and required approvals.', actions)}
       <div class="stat-grid">
         ${statCard('activity', state.monitoringActive ? '3 active' : 'Ready', 'Agent workflows', 'Illustrative execution state', '')}
-        ${statCard('alert', state.postActionApproved ? '1' : '2', 'Approvals needed', 'No system write-back without approval', 'amber')}
+        ${statCard('alert', state.postActionApproved ? '1' : '2', 'Approvals needed', 'No company record changes without approval', 'amber')}
         ${statCard('clock', '1', 'Due soon', 'Invoice approval · Jul 22', 'purple')}
         ${statCard('refresh', '1 signal', 'System update', 'Finance event received', 'green')}
       </div>
       <div class="post-signature-layout">
         <div class="card post-task-card">
-          <div class="card-header"><div><div class="card-title">Execution plan</div><div class="card-description">Agent-proposed actions extracted from the signed sample agreement</div></div><span class="tag ${state.monitoringActive ? 'green' : 'amber'}">${state.monitoringActive ? 'Monitoring active' : 'Awaiting approval'}</span></div>
+          <div class="card-header"><div><div class="card-title">Execution plan</div><div class="card-description">Actions Veridex found in the signed agreement</div></div><span class="tag ${state.monitoringActive ? 'green' : 'amber'}">${state.monitoringActive ? 'Monitoring active' : 'Awaiting approval'}</span></div>
           <div class="post-task-list">${tasks.map(renderPostTask).join('')}</div>
         </div>
         <aside class="post-side-stack">
           <div class="card">
             <div class="card-header"><div><div class="card-title">Agent lifecycle</div><div class="card-description">From signed terms to verified execution</div></div></div>
             <div class="timeline">
-              <div class="timeline-item"><div class="timeline-dot">✓</div><div class="timeline-copy"><strong>Signed version recorded</strong><span>Executed sample agreement stored</span></div></div>
+              <div class="timeline-item"><div class="timeline-dot">✓</div><div class="timeline-copy"><strong>Signed version recorded</strong><span>Executed agreement stored</span></div></div>
               <div class="timeline-item"><div class="timeline-dot">✓</div><div class="timeline-copy"><strong>Commitments extracted</strong><span>Four actions proposed with source clauses</span></div></div>
               <div class="timeline-item"><div class="timeline-dot">✓</div><div class="timeline-copy"><strong>Owners mapped</strong><span>HRIS and business roles aligned</span></div></div>
-              <div class="timeline-item"><div class="timeline-dot">${state.monitoringActive ? '✓' : '4'}</div><div class="timeline-copy"><strong>${state.monitoringActive ? 'Monitoring active' : 'Human approval gate'}</strong><span>${state.monitoringActive ? 'Events, evidence and due dates are monitored' : 'Approve before reminders or write-backs begin'}</span></div></div>
+              <div class="timeline-item"><div class="timeline-dot">${state.monitoringActive ? '✓' : '4'}</div><div class="timeline-copy"><strong>${state.monitoringActive ? 'Monitoring active' : 'Approval required'}</strong><span>${state.monitoringActive ? 'Events, evidence and due dates are monitored' : 'Approve before reminders or company-record updates begin'}</span></div></div>
             </div>
           </div>
           <div class="card">
-            <div class="card-header"><div><div class="card-title">System loop</div><div class="card-description">Illustrative read and write-back destinations</div></div><button class="btn small ghost" data-navigate="data-alignment">View data</button></div>
+            <div class="card-header"><div><div class="card-title">Company systems</div><div class="card-description">Where Veridex reads information and records approved progress</div></div><button class="btn small ghost" data-navigate="data-alignment">View data</button></div>
             <div class="system-loop-list">
-              ${systemContextRow('activity', 'Finance system', 'Invoice event → approval status', 'Sample', 'green')}
-              ${systemContextRow('database', 'ERP vendor record', 'Evidence request → record update', 'Sample', 'blue')}
-              ${systemContextRow('folder', 'Contract repository', 'Signed version → execution evidence', 'Sample', 'purple')}
+              ${systemContextRow('activity', 'Finance system', 'Invoice event → approval status', 'Connected', 'green')}
+              ${systemContextRow('database', 'ERP vendor record', 'Evidence request → record update', 'Connected', 'blue')}
+              ${systemContextRow('folder', 'Contract repository', 'Signed version → execution evidence', 'Connected', 'purple')}
             </div>
             <div class="boundary-note compact">${icon('shield')} <span>Veridex prepares actions and system updates. Material actions remain subject to configured human approval.</span></div>
           </div>
@@ -628,7 +629,7 @@ function renderCounsel() {
             <div class="bundle-row"><div class="bundle-check">✓</div><div><strong>Question for counsel</strong><span>Review whether the proposed delivery-ownership wording fits the parties’ intended service arrangement.</span></div></div>
             <div class="bundle-row"><div class="bundle-check">✓</div><div><strong>Relevant contract excerpt</strong><span>Section 5.2 plus the AI-drafted redline and business context.</span></div></div>
             <div class="bundle-row"><div class="bundle-check">✓</div><div><strong>Business objective</strong><span>Assign a clear owner through delivery and signed acceptance.</span></div></div>
-            <div class="bundle-row"><div class="bundle-check">✓</div><div><strong>Aligned business context</strong><span>ERP vendor record, finance payment preference and HRIS business owner are attached as sample context.</span></div></div>
+            <div class="bundle-row"><div class="bundle-check">✓</div><div><strong>Business context</strong><span>ERP vendor record, finance payment preference and HRIS business owner are attached for review.</span></div></div>
             <div class="bundle-row"><div class="bundle-check">✓</div><div><strong>Source status</strong><span>Legal sources are pending verification; no current citation is presented as authoritative.</span></div></div>
           </div>
           <div class="boundary-note">${icon('shield')} <span>Veridex organizes context and AI-assisted information. Only qualified licensed counsel can provide legal advice for the actual matter.</span></div>
@@ -640,44 +641,51 @@ function renderCounsel() {
 
 function renderDataAlignment() {
   const connectors = [
-    { icon: 'database', title: 'ERP & Procurement', data: 'Vendor master · Purchase orders · Delivery events', direction: 'Read + proposed write-back', refresh: 'Illustrative event stream', owner: 'Operations', color: 'green' },
-    { icon: 'activity', title: 'Finance', data: 'Payment terms · Invoices · Approval status', direction: 'Read + proposed write-back', refresh: 'Illustrative daily sync', owner: 'Finance', color: 'blue' },
-    { icon: 'users', title: 'HRIS', data: 'Business owners · Roles · Approval chain', direction: 'Read only', refresh: 'Illustrative daily sync', owner: 'People operations', color: 'purple' },
-    { icon: 'folder', title: 'Contract repository', data: 'Drafts · Signed versions · Amendments · Evidence', direction: 'Read + proposed write-back', refresh: 'Illustrative event stream', owner: 'Legal operations', color: '' }
+    { icon: 'database', title: 'ERP & Procurement', data: 'Vendor profiles, purchase orders and delivery updates', use: 'Checks company details and follows delivery commitments', owner: 'Operations', color: 'green' },
+    { icon: 'activity', title: 'Finance', data: 'Standard payment terms, invoices and approval status', use: 'Compares payment clauses and tracks invoices after signing', owner: 'Finance', color: 'blue' },
+    { icon: 'users', title: 'HR system', data: 'Contract owners, roles and approval responsibilities', use: 'Finds the right owner and approver for each action', owner: 'People Operations', color: 'purple' },
+    { icon: 'folder', title: 'Contract storage', data: 'Drafts, signed versions, amendments and evidence', use: 'Keeps the current agreement and supporting records together', owner: 'Legal Operations', color: '' }
   ];
   const mappings = [
-    { field: 'Counterparty identity', value: 'Cedar Works Inc. · CW-0148', source: 'ERP vendor master', status: 'Aligned', color: 'green' },
-    { field: 'Payment terms', value: state.alignmentResolved ? 'Net 30 · Approved' : 'Contract: unspecified · Finance: Net 30', source: 'Finance profile', status: state.alignmentResolved ? 'Reviewed' : 'Review needed', color: state.alignmentResolved ? 'green' : 'amber' },
-    { field: 'Business owner', value: 'Sofia Martinez · Operations admin', source: 'HRIS role roster', status: 'Aligned', color: 'green' },
-    { field: 'Executed record', value: 'PSA-2026-014 · Version 3', source: 'Contract repository', status: 'Current', color: 'blue' }
+    { field: 'Company', value: 'Cedar Works Inc. · Vendor CW-0148', source: 'ERP vendor record', status: 'Confirmed', color: 'green' },
+    { field: 'Invoice due date', value: state.paymentChoice === 'net30' ? 'Net 30 · Confirmed by Finance' : state.paymentChoice === 'unchanged' ? 'Not stated in contract · Left unchanged' : 'Contract: not stated · Finance: Net 30', source: 'Finance settings', status: state.alignmentResolved ? 'Decision recorded' : 'Needs decision', color: state.alignmentResolved ? 'green' : 'amber' },
+    { field: 'Contract owner', value: 'Sofia Martinez · Operations Admin', source: 'HR system', status: 'Confirmed', color: 'green' },
+    { field: 'Current signed version', value: 'PSA-2026-014 · Version 3', source: 'Contract storage', status: 'Current', color: 'blue' }
   ];
-  const action = state.alignmentResolved
-    ? `<button class="btn teal" disabled>${icon('check')} Alignment reviewed</button>`
-    : `<button class="btn primary" data-action="resolve-alignment">${icon('check')} Approve payment mapping</button>`;
+  const decisionTitle = state.paymentChoice === 'net30'
+    ? 'Finance confirmed Net 30'
+    : state.paymentChoice === 'unchanged'
+      ? 'Contract left unchanged'
+      : 'Which payment term should this contract use?';
+  const decisionCopy = state.paymentChoice === 'net30'
+    ? 'Net 30 is now the confirmed business instruction for this contract. Veridex will still wait for approval before changing contract wording or company records.'
+    : state.paymentChoice === 'unchanged'
+      ? 'The contract will remain silent on the invoice due date. The Finance setting is retained as company context only.'
+      : 'The contract does not say when invoices are due, while the Finance system uses Net 30. Choose how Veridex should handle this contract.';
   return `
     <section class="page">
-      ${pageHeader('Agent context layer', 'Data Alignment', 'Give Veridex a controlled, traceable view of the business data needed to coordinate contract work.', action)}
+      ${pageHeader('Connected business context', 'Data Alignment', 'Bring the right company information into each contract so terms, owners and follow-up stay consistent.')}
       <div class="stat-grid">
-        ${statCard('database', '4', 'Sample systems', 'No production connection represented', '')}
-        ${statCard('link', '18', 'Mapped fields', 'Illustrative canonical context', 'green')}
-        ${statCard('alert', state.alignmentResolved ? '0' : '1', 'Alignment issues', state.alignmentResolved ? 'Reviewed by data owner' : 'Human decision required', 'amber')}
-        ${statCard('refresh', '3', 'Write-back routes', 'Approval required before action', 'purple')}
+        ${statCard('database', '4', 'Connected systems', 'ERP, Finance, HR and contract storage', '')}
+        ${statCard('link', '18', 'Contract details found', 'Names, terms, owners and records', 'green')}
+        ${statCard('alert', state.alignmentResolved ? '0' : '1', 'Decision needed', state.alignmentResolved ? 'Finance decision recorded' : 'Finance confirmation required', 'amber')}
+        ${statCard('shield', '0', 'Automatic changes', 'You approve every company-record update', 'purple')}
       </div>
 
       <div class="alignment-flow card">
-        <div class="alignment-flow-group"><span>INPUTS</span><strong>ERP · Finance · HRIS · Contract records</strong><small>Business context and system events</small></div>
+        <div class="alignment-flow-group"><span>1 · GATHER</span><strong>Read the company records linked to this contract</strong><small>ERP, Finance, HR and contract storage</small></div>
         <div class="alignment-flow-arrow">${icon('arrow')}</div>
-        <div class="alignment-flow-core"><div class="mini-icon purple">${icon('sparkle')}</div><div><span>VERIDEX AGENT</span><strong>Aligns context and proposes actions</strong><small>Human approval gates remain visible</small></div></div>
+        <div class="alignment-flow-core"><div class="mini-icon purple">${icon('sparkle')}</div><div><span>2 · CHECK</span><strong>Compare the contract with company information</strong><small>Find missing or conflicting details</small></div></div>
         <div class="alignment-flow-arrow">${icon('arrow')}</div>
-        <div class="alignment-flow-group"><span>OUTCOMES</span><strong>Contracts · Tasks · Alerts · Evidence</strong><small>Proposed updates to systems of record</small></div>
+        <div class="alignment-flow-group"><span>3 · ASK FIRST</span><strong>Show the decision and wait for approval</strong><small>No records or messages change automatically</small></div>
       </div>
 
       <div class="alignment-layout">
         <div>
-          <div class="section-heading"><div><h2>Business systems</h2><p>Illustrative connector states for the financing demo</p></div><span class="tag blue">Sample workspace</span></div>
+          <div class="section-heading"><div><h2>Connected company systems</h2><p>Where Veridex finds the information needed to coordinate contract work</p></div><span class="tag green">4 connected</span></div>
           <div class="connector-grid">${connectors.map(renderConnectorCard).join('')}</div>
           <div class="card mapping-card">
-            <div class="card-header"><div><div class="card-title">Unified contract context</div><div class="card-description">Canonical fields Veridex uses across drafting, review and execution</div></div><span class="tag purple">Agent-readable</span></div>
+            <div class="card-header"><div><div class="card-title">Contract information found across your systems</div><div class="card-description">These facts follow the contract through drafting, review and post-signature work</div></div><span class="tag blue">Current record</span></div>
             <div class="mapping-list">${mappings.map(renderMappingRow).join('')}</div>
           </div>
         </div>
@@ -685,19 +693,20 @@ function renderDataAlignment() {
         <aside class="alignment-side-stack">
           <div class="card alignment-issue-card ${state.alignmentResolved ? 'resolved' : ''}">
             <div class="status-icon">${icon(state.alignmentResolved ? 'check' : 'alert')}</div>
-            <div><span class="context-label">${state.alignmentResolved ? 'REVIEW RECORDED' : 'ALIGNMENT ISSUE'}</span><h3>${state.alignmentResolved ? 'Payment mapping approved' : 'Payment terms need a data owner'}</h3><p>${state.alignmentResolved ? 'The finance preference is now available as approved business context. It is not presented as a legal conclusion.' : 'The uploaded agreement does not specify invoice terms, while the finance profile uses Net 30. Veridex will not write this term into the contract without approval.'}</p></div>
+            <div class="decision-copy"><span class="context-label">${state.alignmentResolved ? 'DECISION RECORDED' : 'NEEDS YOUR DECISION'}</span><h3>${decisionTitle}</h3><p>${decisionCopy}</p>${state.alignmentResolved ? '' : `<div class="decision-actions"><button class="btn primary small" data-action="resolve-alignment">Use Net 30</button><button class="btn small" data-action="leave-payment-unchanged">Leave unchanged</button></div>`}</div>
           </div>
           <div class="card">
-            <div class="card-header"><div><div class="card-title">Write-back destinations</div><div class="card-description">Proposed actions after a human decision</div></div></div>
+            <div class="card-header"><div><div class="card-title">What Veridex can do after you approve</div><div class="card-description">Every update remains visible and under human control</div></div></div>
             <div class="system-loop-list">
-              ${systemContextRow('folder', 'Contract repository', 'Redlines · approved version · evidence', 'Approval gate', 'purple')}
-              ${systemContextRow('activity', 'Finance', 'Invoice approval · payment status', 'Approval gate', 'green')}
-              ${systemContextRow('database', 'ERP & Procurement', 'Delivery status · vendor evidence', 'Approval gate', 'blue')}
-              ${systemContextRow('mail', 'Collaboration tools', 'Prepared reminders · escalation notices', 'Approval gate', 'amber')}
+              ${systemContextRow('folder', 'Save the approved contract version', 'Keep wording, approvals and evidence together', 'Review first', 'purple')}
+              ${systemContextRow('activity', 'Create the finance follow-up', 'Track invoice approval and payment status', 'Review first', 'green')}
+              ${systemContextRow('database', 'Record delivery progress', 'Keep delivery status and vendor documents current', 'Review first', 'blue')}
+              ${systemContextRow('mail', 'Prepare owner reminders', 'Let you review recipients and wording before sending', 'Review first', 'amber')}
             </div>
+            <div class="boundary-note compact">${icon('shield')} <span>Veridex does not change company records or send messages until an authorized user approves.</span></div>
           </div>
           <div class="card">
-            <div class="card-header"><div><div class="card-title">Knowledge &amp; source controls</div><div class="card-description">Internal data is separated from legal source records</div></div></div>
+            <div class="card-header"><div><div class="card-title">Legal and source information</div><div class="card-description">Legal sources stay separate from internal company records</div></div></div>
             <div class="source-meta alignment-source-meta">
               ${metaCell('Jurisdiction', 'Transaction-specific · Confirm scope')}
               ${metaCell('Source', 'Configured legal source register')}
@@ -706,7 +715,7 @@ function renderDataAlignment() {
               ${metaCell('Human Review Status', 'Qualified review required')}
               ${metaCell('Internal Data Owner', 'Operations admin')}
             </div>
-            <div class="boundary-note compact">${icon('shield')} <span>Business data, internal policies and legal sources retain separate provenance and review status.</span></div>
+            <div class="boundary-note compact">${icon('shield')} <span>Company information supports the workflow but does not replace verified legal sources or licensed legal review.</span></div>
           </div>
         </aside>
       </div>
@@ -715,14 +724,14 @@ function renderDataAlignment() {
 
 function renderConnectorCard(item) {
   return `<article class="card connector-card">
-    <div class="connector-top"><div class="source-icon ${item.color}">${icon(item.icon)}</div><div><h3>${item.title}</h3><span class="tag ${item.color}">Sample connection</span></div></div>
+    <div class="connector-top"><div class="source-icon ${item.color}">${icon(item.icon)}</div><div><h3>${item.title}</h3><span class="tag green">Connected</span></div></div>
     <p>${item.data}</p>
-    <div class="connector-meta"><div><span>Direction</span><strong>${item.direction}</strong></div><div><span>Refresh mode</span><strong>${item.refresh}</strong></div><div><span>Data owner</span><strong>${item.owner}</strong></div><div><span>Alignment status</span><strong>Available for review</strong></div></div>
+    <div class="connector-meta"><div><span>How Veridex uses it</span><strong>${item.use}</strong></div><div><span>Managed by</span><strong>${item.owner}</strong></div></div>
   </article>`;
 }
 
 function renderMappingRow(item) {
-  return `<div class="mapping-row"><div><span>${item.field}</span><strong>${item.value}</strong></div><div><span>Source system</span><strong>${item.source}</strong></div><span class="tag ${item.color}">${item.status}</span></div>`;
+  return `<div class="mapping-row"><div><span>Contract information</span><strong>${item.field}: ${item.value}</strong></div><div><span>Found in</span><strong>${item.source}</strong></div><span class="tag ${item.color}">${item.status}</span></div>`;
 }
 
 function renderSourceCard(item) {
@@ -734,7 +743,7 @@ function sourceField(label, value) {
 }
 
 function renderNotifications() {
-  return `<div class="notification-head"><strong>Agent alerts</strong><span>${state.alignmentResolved ? '2' : '3'} open</span></div><div class="notification-item"><div class="alert-icon">${icon('alert')}</div><div class="notification-copy"><strong>Invoice approval due soon</strong><span>Professional Services Agreement · Finance owner</span><time>Jul 22, 2026</time></div></div>${state.alignmentResolved ? '' : `<div class="notification-item"><div class="alert-icon blue">${icon('refresh')}</div><div class="notification-copy"><strong>Payment terms need alignment</strong><span>Contract input differs from finance profile</span><time>Human decision required</time></div></div>`}<div class="notification-item"><div class="alert-icon blue">${icon('users')}</div><div class="notification-copy"><strong>${state.counselRequested ? 'Counsel request awaiting response' : 'Counsel review available'}</strong><span>Delivery-ownership question</span><time>${state.counselRequested ? 'Request sent' : 'Not yet requested'}</time></div></div>`;
+  return `<div class="notification-head"><strong>Agent alerts</strong><span>${state.alignmentResolved ? '2' : '3'} open</span></div><div class="notification-item"><div class="alert-icon">${icon('alert')}</div><div class="notification-copy"><strong>Invoice approval due soon</strong><span>Professional Services Agreement · Finance owner</span><time>Jul 22, 2026</time></div></div>${state.alignmentResolved ? '' : `<div class="notification-item"><div class="alert-icon blue">${icon('refresh')}</div><div class="notification-copy"><strong>Payment term needs a decision</strong><span>The contract is blank; Finance uses Net 30</span><time>Your decision is required</time></div></div>`}<div class="notification-item"><div class="alert-icon blue">${icon('users')}</div><div class="notification-copy"><strong>${state.counselRequested ? 'Counsel request awaiting response' : 'Counsel review available'}</strong><span>Delivery-ownership question</span><time>${state.counselRequested ? 'Request sent' : 'Not yet requested'}</time></div></div>`;
 }
 
 function normalizePageId(pageId) {
@@ -812,9 +821,10 @@ function handleAction(action, element) {
     case 'request-counsel': navigateTo('counsel'); break;
     case 'send-counsel-request': state.counselRequested = true; renderPage('counsel'); showToast('Counsel request sent', 'The request is now awaiting a human response.', 'success'); break;
     case 'verify-screening': state.screeningVerified = true; renderPage('screening'); showToast('Identity review recorded', 'The similar name was resolved by a human reviewer.', 'success'); break;
-    case 'resolve-alignment': state.alignmentResolved = true; renderPage('data-alignment'); document.getElementById('notification-panel').innerHTML = renderNotifications(); showToast('Alignment decision recorded', 'The approved finance preference is now available as business context.', 'success'); break;
-    case 'activate-monitoring': state.monitoringActive = true; state.contractActive = true; renderPage('post-signature'); showToast('Post-signature workflow started', 'Veridex is monitoring four approved sample actions.', 'success'); break;
-    case 'approve-post-action': state.postActionApproved = true; renderPage('post-signature'); showToast('Action approved', 'The sample finance status has been synced to the execution plan.', 'success'); break;
+    case 'resolve-alignment': state.alignmentResolved = true; state.paymentChoice = 'net30'; renderPage('data-alignment'); document.getElementById('notification-panel').innerHTML = renderNotifications(); showToast('Net 30 confirmed', 'The Finance decision is now attached to this contract.', 'success'); break;
+    case 'leave-payment-unchanged': state.alignmentResolved = true; state.paymentChoice = 'unchanged'; renderPage('data-alignment'); document.getElementById('notification-panel').innerHTML = renderNotifications(); showToast('Contract left unchanged', 'The Finance setting remains company context only.', 'success'); break;
+    case 'activate-monitoring': state.monitoringActive = true; state.contractActive = true; renderPage('post-signature'); showToast('Post-signature workflow started', 'Veridex is monitoring four approved actions.', 'success'); break;
+    case 'approve-post-action': state.postActionApproved = true; renderPage('post-signature'); showToast('Action approved', 'The Finance status has been added to the execution plan.', 'success'); break;
     case 'prepare-reminder': showToast('Reminder prepared', 'Review the recipient, timing and message before sending.', 'success'); break;
     case 'save-draft': state.draftSaved = true; navigateTo('contracts'); showToast('Draft saved to All contracts', 'The bilingual AI draft is marked for human review.', 'success'); break;
     case 'mark-signed': state.contractActive = true; navigateTo('post-signature'); showToast('Signed version recorded', 'Review the Agent-proposed execution plan before starting monitoring.', 'success'); break;
@@ -847,7 +857,7 @@ const tourSteps = [
   },
   {
     title: 'Align business context',
-    text: 'Bring sample ERP, finance, HRIS and contract records into one traceable view before the Agent proposes contract or operational actions.',
+    text: 'Bring ERP, finance, HR and contract records into one clear view, resolve differences and approve what Veridex should do next.',
     icon: 'database',
     target: 'data-alignment'
   },
